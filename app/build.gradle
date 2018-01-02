@@ -14,10 +14,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     signingConfigs {
         release {
-            keyAlias 'key19'
-            keyPassword 'su4ka194'
-            storeFile file('keyStore/keyStore.jks')
-            storePassword 'su4ka194'
+
         }
     }
     compileSdkVersion 27
