@@ -19,7 +19,6 @@
     <!--Screen Auth-->
     <string name="screen_auth">Авторизация</string>
     <string name="screen_auth_authorization_error">Не удалось авторизоваться</string>
-    <string name="server_client_id">322764981557-ioifu2g3193o80nra3hgjpn0f4r8i76t.apps.googleusercontent.com</string>
     <string name="screen_auth_dialog_authorization">Авторизация</string>
 
     <!--Custom Progress Dialog-->
