@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:icon="@drawable/ic_kitchen"
+            android:title="@string/navigation_drawer_menu_ref" />
+        <item
+            android:icon="@drawable/ic_people_white_24dp"
+            android:id="@+id/nav_common_fridge"
+            android:title="Общий холодильник" />
+        <item
+            android:icon="@drawable/ic_settings_white_24dp"
+            android:id="@+id/nav_info"
+            android:title="Настройки" />
+    </group>
+
+    <item android:title="@string/navigation_drawer_menu_communicate">
+        <menu>
+            <item
+                android:icon="@drawable/ic_share"
+                android:id="@+id/nav_share"
+                android:title="@string/navigation_drawer_menu_share" />
+        </menu>
+    </item>
+</menu>

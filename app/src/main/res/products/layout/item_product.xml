@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/item_product_textView_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_toEndOf="@+id/itemProductImgViewPhoto"
+        android:layout_toRightOf="@+id/itemProductImgViewPhoto"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Яблоки eeeeeeeeeeeeeeeeeeeeeeeeeeee" />
+
+    <TextView
+        android:id="@+id/txtViewCountDays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_product_textView_title"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@+id/itemProductImgViewPhoto"
+        android:layout_toRightOf="@+id/itemProductImgViewPhoto"
+        android:drawableLeft="@drawable/ic_access_time_black_18dp"
+        android:drawablePadding="4dp"
+        android:drawableStart="@drawable/ic_access_time_black_18dp"
+        android:textSize="12sp"
+        tools:text="через 2 дня" />
+
+    <TextView
+        android:id="@+id/item_product_date"
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtViewCountDays"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_toEndOf="@+id/itemProductImgViewPhoto"
+        android:layout_toRightOf="@+id/itemProductImgViewPhoto"
+        android:textSize="12sp"
+        tools:text="kalugin.1912@gmail.com" />
+
+    <ImageView
+        android:layout_centerInParent="true"
+        android:id="@+id/itemProductImgViewPhoto"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/pineapple"
+        android:contentDescription="@string/item_products_contentDescription"
+        android:scaleType="centerCrop" />
+</RelativeLayout>

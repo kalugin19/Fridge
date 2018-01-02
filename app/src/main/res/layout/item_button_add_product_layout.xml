@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <ImageView
+       android:id="@+id/activity_add_edit_product_adapter_add_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        style="?android:attr/borderlessButtonStyle"
+        android:contentDescription="@string/activity_add_edit_product_imagView_content_description_add_product"
+        android:src="@drawable/ic_add_a_photo" />
+
+
+</RelativeLayout>

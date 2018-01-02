@@ -1,0 +1,6 @@
+key store password !?{7gpUbNv*t+Q<+
+key pass cZx&}_k`EudKa9/'
+alias refrigerator
+
+keytool -exportcert -list -v \
+-alias refrigerator -keystore app/keyStore/

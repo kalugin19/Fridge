@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/bottom_navigation_menu_all"
+        android:enabled="true"
+        android:icon="@drawable/groceries"
+        android:title="@string/bottom_navigation_menu_all"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/bottom_navigation_menu_fresh"
+        android:enabled="true"
+        android:icon="@drawable/cherries"
+        android:title="@string/bottom_navigation_menu_fresh"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/bottom_navigation_menu_soon"
+        android:enabled="true"
+        android:icon="@drawable/roast_chicken"
+        android:title="@string/bottom_navigation_menu_soon"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/bottom_navigation_menu_spoiled"
+        android:enabled="true"
+        android:icon="@drawable/chicken"
+        android:title="@string/bottom_navigation_menu_spoiled"
+        app:showAsAction="ifRoom" />
+</menu>

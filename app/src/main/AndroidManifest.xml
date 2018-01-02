@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="ru.kalugin19.fridge.android.pub.v1">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".FridgeApplication"
+        android:allowBackup="true"
+        android:fullBackupContent="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <!-- Авторизация -->
+        <activity
+            android:name=".ui.auth.AuthorizationActivity"
+            android:label="@string/screen_auth"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBarAuthorization">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Экран Список продуктов -->
+        <activity
+            android:name=".ui.products.activity.ProductsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <!-- Экран Добавления и редактирования продукта -->
+        <activity
+            android:name=".ui.add_edit_product.view.activity.AddEditProductActivity"
+            android:label="@string/activity_add_edit_product_title"
+            android:screenOrientation="portrait" />
+        <!-- Экран сканирования штрих=кода -->
+        <activity
+            android:name=".ui.add_edit_product.view.activity.BarcodeScannerActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.common_fridge.CommonFridgeActivity"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="d9b657530dc3624e817de2ada1a58402cbc9f90a" />
+    </application>
+
+</manifest>

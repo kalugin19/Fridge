@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Fridge</string>
+    <string name="ok">ОК</string>
+    <string name="deleted_button">Delete</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="continue_button">Continue</string>
+    <string name="barcode">- Barcode</string>
+    <string name="share_app_link">Join us!\n%1$s</string>
+    <!--Navigation Drawer-->
+    <string name="navigation_drawer_img_content_description">App logo</string>
+    <string name="navigation_drawer_textView_app_name">App "Fridge"</string>
+    <string name="navigation_drawer_menu_ref">Fridge</string>
+    <string name="navigation_drawer_menu_share">Share</string>
+    <string name="navigation_drawer_menu_communicate">Communication</string>
+
+    <!--Screen Intro-->
+
+    <!--Screen Auth-->
+    <string name="screen_auth">Authorization</string>
+    <string name="screen_auth_authorization_error">Failed to login</string>
+    <string name="server_client_id">322764981557-ioifu2g3193o80nra3hgjpn0f4r8i76t.apps.googleusercontent.com</string>
+    <string name="screen_auth_dialog_authorization">Authorization</string>
+
+    <!--Custom Progress Dialog-->
+    <string name="custom_progress_dialog_button_cancel_title">Cancel</string>
+
+
+    <!--Bottom Navigation Menu-->
+    <string name="bottom_navigation_menu_spoiled">Spoiled</string>
+    <string name="bottom_navigation_menu_soon">Soon</string>
+    <string name="bottom_navigation_menu_fresh">Fresh</string>
+    <string name="bottom_navigation_menu_all">All</string>
+
+    <!--Item Products-->
+    <string name="item_products_contentDescription">Product Image</string>
+    <string name="last_item_menu_delete">Delete</string>
+
+    <!--Fragment products-->
+    <string name="fragment_products_emptyState_all">No products found</string>
+    <string name="fragment_products_emptyState_soon">There are no products that will spoil soon</string>
+    <string name="fragment_products_emptyState_spoiled">No spoiled products</string>
+    <string name="fragment_products_emptyState_fresh">No fresh products</string>
+    <string name="fragment_products_dialog_delete_products_title">Delete products</string>
+    <string name="fragment_products_dialog_delete_products_description">Are you sure?</string>
+    <string name="fragment_products_dialog_delete_products_positive">OK</string>
+    <string name="fragment_products_dialog_delete_products_negative">Cancel</string>
+
+    <!--Activity Products-->
+    <string name="activity_products_progress_dialog_delete_products">Delete products</string>
+    <string name="activity_products_progress_deleting_error">Uninstall error</string>
+    <string name="activity_products_error_no_internet">No connection</string>
+
+    <string name="navigation_drawer_open" tools:keep="@string/navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close" tools:keep="@string/navigation_drawer_close">Close navigation drawer</string>
+
+    <!--Voice Input Products-->
+
+
+    <!--Activity Add Edit Product Products-->
+    <string name="activity_add_edit_product_title">Add food</string>
+    <string name="activity_add_edit_product_edit_text_name">Name</string>
+    <string name="activity_add_edit_product_image_button_content_description_scan_sc">Barcode scanner button</string>
+    <string name="activity_add_edit_product_text_view_unfit_before">Best before:</string>
+    <string name="activity_add_edit_product_button_save_title">Save</string>
+    <string name="activity_add_edit_product_image_view_photo_product">Food Image</string>
+    <string name="activity_add_edit_product_image_view_deleted_photo_product">Picture of button to delete food photo</string>
+    <string name="activity_add_edit_product_error_permission_granted_to_camera">Can not access camera</string>
+    <string name="activity_add_edit_product_error_search_product">Food not found</string>
+    <string name="activity_add_edit_product_error_no_internet">Network unavailable - Please check your network connection and try again</string>
+    <string name="activity_add_edit_product_error_validation_view_unfit_before">Indicate the expiration date of the food</string>
+    <string name="activity_add_edit_product_dialog_text_success_add_product">The food was added to the Fridge</string>
+    <string name="activity_add_edit_product_dialog_title_edit">Food Editing</string>
+    <string name="activity_add_edit_product_dialog_text_success_edit_product">The food is changed</string>
+    <string name="activity_add_edit_product_progress_dialog_text">Loading, please wait&#8230;</string>
+    <string name="activity_add_edit_product_dialog_delete_image">Delete image?</string>
+    <string name="activity_add_edit_product_imagView_content_description_add_product">Add food</string>
+    <string name="activity_add_edit_product_select_picture_with">Select a picture with&#8230;</string>
+    <string name="activity_add_edit_product_dialog_title_error_download_image">Error</string>
+    <string name="activity_add_edit_product_dialog_text_error_download_image">An error occurred while sending the image</string>
+    <string name="activity_add_edit_product_barcode_search">Search</string>
+    <string name="activity_add_edit_product_error_add_or_edit_product">Error</string>
+
+</resources>
