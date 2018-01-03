@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="ru.kalugin19.fridge.android.pub.v1">
+    package="ru.kalugin19.fridge.android.pub.v2">
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".FridgeApplication"
+        android:name="ru.kalugin19.fridge.android.pub.v2.FridgeApplication"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,7 +21,7 @@
 
         <!-- Авторизация -->
         <activity
-            android:name=".ui.auth.AuthorizationActivity"
+            android:name="ru.kalugin19.fridge.android.pub.v2.ui.auth.AuthorizationActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBarAuthorization">
             <intent-filter>
@@ -33,22 +33,22 @@
 
         <!-- Экран Список продуктов -->
         <activity
-            android:name=".ui.products.activity.ProductsActivity"
+            android:name="ru.kalugin19.fridge.android.pub.v2.ui.products.activity.ProductsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- Экран Добавления и редактирования продукта -->
         <activity
-            android:name=".ui.add_edit_product.view.activity.AddEditProductActivity"
+            android:name="ru.kalugin19.fridge.android.pub.v2.ui.add_edit_product.view.activity.AddEditProductActivity"
             android:label="@string/activity_add_edit_product_title"
             android:screenOrientation="portrait" />
         <!-- Экран сканирования штрих=кода -->
         <activity
-            android:name=".ui.add_edit_product.view.activity.BarcodeScannerActivity"
+            android:name="ru.kalugin19.fridge.android.pub.v2.ui.add_edit_product.view.activity.BarcodeScannerActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.common_fridge.CommonFridgeActivity"
+            android:name="ru.kalugin19.fridge.android.pub.v2.ui.common_fridge.CommonFridgeActivity"
             android:screenOrientation="portrait" />
 
         <meta-data

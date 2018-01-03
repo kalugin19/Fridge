@@ -41,10 +41,30 @@
               <option value="plugin:org.jetbrains.kotlin.android:experimental=false" />
               <option value="plugin:org.jetbrains.kotlin.android:enabled=true" />
               <option value="plugin:org.jetbrains.kotlin.android:defaultCacheImplementation=hashMap" />
+              <option value="plugin:org.jetbrains.kotlin.android:package=ru.kalugin19.fridge.android.pub.v2" />
+              <option value="plugin:org.jetbrains.kotlin.android:variant=main;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/base;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/intro;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/auth;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/voice_input;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/products;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/add_edit_product;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/dialogs;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/common_fridge" />
+              <option value="plugin:org.jetbrains.kotlin.kapt:output=/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/build/tmp/kapt/debug/wrappers/annotations.debug.txt" />
+              <option value="plugin:org.jetbrains.kotlin.kapt:inherited=true" />
+              <option value="plugin:org.jetbrains.kotlin.android:package=ru.kalugin19.fridge.android.pub.v2" />
+              <option value="plugin:org.jetbrains.kotlin.android:variant=main;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/base;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/intro;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/auth;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/voice_input;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/products;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/add_edit_product;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/dialogs;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/common_fridge" />
+              <option value="plugin:org.jetbrains.kotlin.kapt:output=/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/build/tmp/kapt/release/wrappers/annotations.release.txt" />
+              <option value="plugin:org.jetbrains.kotlin.kapt:inherited=true" />
+              <option value="plugin:org.jetbrains.kotlin.android:package=ru.kalugin19.fridge.android.pub.v2" />
+              <option value="plugin:org.jetbrains.kotlin.android:variant=main;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/base;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/intro;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/auth;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/voice_input;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/products;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/add_edit_product;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/dialogs;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/common_fridge" />
+              <option value="plugin:org.jetbrains.kotlin.kapt:output=/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/build/tmp/kapt/debug/wrappers/annotations.debug.txt" />
+              <option value="plugin:org.jetbrains.kotlin.kapt:inherited=true" />
+              <option value="plugin:org.jetbrains.kotlin.android:package=ru.kalugin19.fridge.android.pub.v2" />
+              <option value="plugin:org.jetbrains.kotlin.android:variant=main;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/base;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/intro;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/auth;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/voice_input;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/products;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/add_edit_product;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/dialogs;/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/src/main/res/common_fridge" />
+              <option value="plugin:org.jetbrains.kotlin.kapt:output=/home/kalugin19/Dropbox/androidProjects/REF25/fridge/app/build/tmp/kapt/release/wrappers/annotations.release.txt" />
+              <option value="plugin:org.jetbrains.kotlin.kapt:inherited=true" />
             </array>
           </option>
           <option name="pluginClasspaths">
             <array>
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.2.10/10eb9a3d66aa7c5e17afdf93116082018d0d4643/kotlin-android-extensions-1.2.10.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.2.10/10eb9a3d66aa7c5e17afdf93116082018d0d4643/kotlin-android-extensions-1.2.10.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.2.10/10eb9a3d66aa7c5e17afdf93116082018d0d4643/kotlin-android-extensions-1.2.10.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.2.10/10eb9a3d66aa7c5e17afdf93116082018d0d4643/kotlin-android-extensions-1.2.10.jar" />
               <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.2.10/10eb9a3d66aa7c5e17afdf93116082018d0d4643/kotlin-android-extensions-1.2.10.jar" />
             </array>
           </option>
@@ -128,6 +148,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shaders" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/splits-support" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/transforms" />
       <excludeFolder url="file://$MODULE_DIR$/build/kotlin" />
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
@@ -216,5 +237,6 @@
     <orderEntry type="library" name="com.google.firebase:firebase-analytics-license-11.8.0" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-analytics-impl-license-11.8.0" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-tasks-license-11.8.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="com.android.support:multidex-instrumentation-1.0.2" level="project" />
   </component>
 </module>

@@ -16,14 +16,14 @@ android {
         release {
             keyAlias 'key19'
             keyPassword 'su4ka194'
-            storeFile file('keyStore/keyStore.jks')
+            storeFile file('keyStore/keyStoreRelease.jks')
             storePassword 'su4ka194'
         }
     }
     compileSdkVersion 27
     buildToolsVersion '27.0.3'
     defaultConfig {
-        applicationId "ru.kalugin19.fridge.android.pub.v1"
+        applicationId "ru.kalugin19.fridge.android.pub.v2"
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 2

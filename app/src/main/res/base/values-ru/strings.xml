@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Fridge</string>
-    <string name="server_client_id">322764981557-ioifu2g3193o80nra3hgjpn0f4r8i76t.apps.googleusercontent.com</string>
+    <string name="server_client_id">959283744497-nm3f6trq2rhlcp08om034jivvrcd5nbd.apps.googleusercontent.com</string>
 
     <string name="ok">ОК</string>
     <string name="deleted_button">Удалить</string>
