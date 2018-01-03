@@ -1,9 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
-#/build
-#/app/build
-#/app/keyStore
-#Будет удалено build/android-profile/profile-2018-01-04-00-02-58-739.json
-#Будет удалено build/android-profile/profile-2018-01-04-00-02-58-739.rawproto
-#Будет удалено build/android-profile/profile-2018-01-04-00-03-31-251.json
-#Будет удалено build/android-profile/profile-2018-01-04-00-03-31-251.rawproto
-#Будет удалено build/kotlin/
+/build
+/app/build
+/app/keyStore
+
+Будет удалено build/android-profile/profile-2018-01-04-00-11-29-418.json
+Будет удалено build/android-profile/profile-2018-01-04-00-11-29-418.rawproto
