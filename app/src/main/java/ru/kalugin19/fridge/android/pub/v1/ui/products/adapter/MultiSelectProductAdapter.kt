@@ -15,7 +15,6 @@ import java.util.ArrayList
 import java.util.Calendar
 import java.util.TimeZone
 import java.util.concurrent.TimeUnit
-import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_authorization.view.*
 import kotlinx.android.synthetic.main.item_product.view.*
 import ru.kalugin19.fridge.android.pub.v1.R

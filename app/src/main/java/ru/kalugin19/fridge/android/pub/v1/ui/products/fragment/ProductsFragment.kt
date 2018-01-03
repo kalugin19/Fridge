@@ -1,7 +1,6 @@
 package ru.kalugin19.fridge.android.pub.v1.ui.products.fragment
 
-import android.app.SearchManager
-import android.content.Context
+
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
@@ -14,19 +13,16 @@ import android.support.v7.widget.SearchView
 import android.view.ActionMode
 import android.view.LayoutInflater
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
-import android.widget.TextView
+
 
 import java.util.ArrayList
 
 import javax.inject.Inject
 
-import butterknife.BindView
-import butterknife.ButterKnife
+
 import kotlinx.android.synthetic.main.activity_authorization.*
 import kotlinx.android.synthetic.main.fragment_products.*
 import kotlinx.android.synthetic.main.fragment_products.view.*
@@ -111,44 +107,7 @@ class ProductsFragment : BaseFragment(), IProductsListView {
         this.controlPanel = iControlPanel
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.products_action_bar_menu, menu)
-        val searchItem = menu.findItem(R.id.products_menu_search)
-        if (activity != null) {
-            val searchManager = activity!!.getSystemService(Context.SEARCH_SERVICE) as SearchManager
-            searchView = null
-            if (searchItem != null) {
-                searchView = searchItem.actionView as SearchView
-            }
-            if (searchView != null) {
-
-                searchView!!.setSearchableInfo(searchManager.getSearchableInfo(activity!!.componentName))
-                searchView!!.setOnCloseListener { false }
-                searchView!!.isIconified = true
-                searchView!!.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-                    override fun onQueryTextSubmit(query: String): Boolean {
-                        typeProducts?.let { productsListPresenter?.getProducts(it, query) }
-                        (activity as ProductsActivity).closeKeyBoard()
-                        return true
-                    }
-
-                    override fun onQueryTextChange(newText: String): Boolean {
-                        if (newText.isNotEmpty()) {
-                            (activity as ProductsActivity).hideViews()
-                            (activity as ProductsActivity).goneBottomElements(true)
-                        } else {
-                            (activity as ProductsActivity).showViews()
-                            (activity as ProductsActivity).goneBottomElements(false)
-                        }
-                        typeProducts?.let { productsListPresenter?.getProducts(it, newText) }
-                        return false
-                    }
-                })
-            }
-        }
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
+//    overA
     override fun onResume() {
         super.onResume()
         typeProducts?.let { productsListPresenter?.attachDatabaseReadListener(it) }

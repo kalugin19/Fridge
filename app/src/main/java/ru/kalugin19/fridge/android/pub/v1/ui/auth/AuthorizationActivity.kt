@@ -9,7 +9,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import javax.inject.Inject
-import butterknife.ButterKnife
 import kotlinx.android.synthetic.main.activity_authorization.*
 import ru.kalugin19.fridge.android.pub.v1.R
 import ru.kalugin19.fridge.android.pub.v1.data.remote.FirebaseService

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.github.pavlospt:roundedletterview-1.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/roundedletterview-1.2.aar/836a0eedb0ed186639e01cffb1c8e939/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/roundedletterview-1.2.aar/836a0eedb0ed186639e01cffb1c8e939/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.pavlospt/roundedletterview/1.2/8ac3943afa02341df00b91fd704a00e18bcc1f70/roundedletterview-1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

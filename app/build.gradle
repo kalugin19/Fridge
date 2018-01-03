@@ -14,7 +14,10 @@ apply plugin: 'kotlin-android-extensions'
 android {
     signingConfigs {
         release {
-
+            keyAlias 'key19'
+            keyPassword 'su4ka194'
+            storeFile file('keyStore/keyStore.jks')
+            storePassword 'su4ka194'
         }
     }
     compileSdkVersion 27
@@ -23,17 +26,17 @@ android {
         applicationId "ru.kalugin19.fridge.android.pub.v1"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 1
-        versionName "0.1"
+        versionCode 2
+        versionName "0.2"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
 
     }
     buildTypes {
         release {
-            minifyEnabled true
+            //minifyEnabled true
             buildConfigField "String", "APP_LINK", "\"http://play.google.com/store/apps/details?id=ru.kalugin19.fridge.android.pub.v1\""
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
         debug {
@@ -116,7 +119,7 @@ dependencies {
     //RoundedLetterView
     compile 'com.github.pavlospt:roundedletterview:1.2'
     compile('com.crashlytics.sdk.android:crashlytics:2.8.0@aar') {
-        transitive = true;
+        transitive = true
     }
 }
 apply plugin: 'com.google.gms.google-services'

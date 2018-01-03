@@ -16,7 +16,6 @@ import com.nostra13.universalimageloader.core.assist.ImageScaleType
 import ru.kalugin19.fridge.android.pub.v1.BuildConfig
 import ru.kalugin19.fridge.android.pub.v1.R
 import ru.kalugin19.fridge.android.pub.v1.ui.common_fridge.CommonFridgeActivity
-import ru.kalugin19.fridge.android.pub.v1.ui.common_fridge.CommonFridgeMemberAdapter
 
 /**
  * Для часто повторяющихся методов

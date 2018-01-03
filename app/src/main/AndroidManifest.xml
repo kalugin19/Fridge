@@ -22,7 +22,6 @@
         <!-- Авторизация -->
         <activity
             android:name=".ui.auth.AuthorizationActivity"
-            android:label="@string/screen_auth"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBarAuthorization">
             <intent-filter>

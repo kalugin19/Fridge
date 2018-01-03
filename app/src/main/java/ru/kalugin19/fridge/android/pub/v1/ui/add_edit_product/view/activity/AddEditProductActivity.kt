@@ -14,10 +14,9 @@ import android.support.v4.app.DialogFragment
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.text.TextUtils
-import android.util.SparseArray
 import android.view.MenuItem
+import android.view.View
 import android.widget.EditText
-import android.widget.PopupMenu
 import android.widget.Toast
 
 import com.mobsandgeeks.saripaar.ValidationError
@@ -32,9 +31,6 @@ import java.util.concurrent.ExecutionException
 import javax.inject.Inject
 
 import butterknife.ButterKnife
-import com.google.android.gms.vision.Frame
-import com.google.android.gms.vision.barcode.Barcode
-import com.google.android.gms.vision.barcode.BarcodeDetector
 import kotlinx.android.synthetic.main.activity_add_edit_product.*
 import pl.aprilapps.easyphotopicker.DefaultCallback
 import pl.aprilapps.easyphotopicker.EasyImage
@@ -150,6 +146,10 @@ class AddEditProductActivity : BaseActivity(), IAddEditProductView, Validator.Va
             } else {
                 validator.validate()
             }
+        }
+
+        if(Locale.getDefault().displayLanguage != "русский"){
+            activity_add_edit_product_image_button_scan.visibility = View.GONE
         }
 
         activity_add_edit_product_image_button_scan.setOnClickListener {
