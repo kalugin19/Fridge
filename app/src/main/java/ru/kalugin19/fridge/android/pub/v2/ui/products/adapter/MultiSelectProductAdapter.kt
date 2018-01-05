@@ -33,7 +33,6 @@ class MultiSelectProductAdapter(private val context: Context, private var dataSe
 
 
     object DateObj {
-        val DATE_FORMAT = "dd.MM.yyyy"
         val UTC = "UTC"
     }
 
@@ -77,7 +76,7 @@ class MultiSelectProductAdapter(private val context: Context, private var dataSe
 
 
 
-            holder.globalView?.setOnClickListener {
+            itemView?.setOnClickListener {
                 iMultiSelectProductAdapter?.clickByProduct(product)
             }
 

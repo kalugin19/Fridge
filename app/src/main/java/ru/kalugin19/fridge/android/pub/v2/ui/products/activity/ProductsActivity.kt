@@ -11,6 +11,7 @@ import android.support.design.widget.CoordinatorLayout
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
+import android.support.v7.app.ActionBarDrawerToggle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -76,26 +77,26 @@ class ProductsActivity : BaseActivity(), IProductsView, NavigationView.OnNavigat
             true
         }
 
-//        val toggle = object : ActionBarDrawerToggle(
-//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
-//
-//            override fun onDrawerStateChanged(newState: Int) {
-//                if (newState == DrawerLayout.STATE_SETTLING) {
-//                    closeKeyBoard()
-//                }
-//                super.onDrawerStateChanged(newState)
-//            }
-//        }
+        val toggle = object : ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
 
-//        drawer.addDrawerListener(toggle)
-//        toggle.syncState()
-//        navView.setNavigationItemSelectedListener { item ->
-//            Util.clickMenuItem(this@ProductsActivity, item)
-//            drawer.closeDrawers()
-//            true
-//        }
-//        email = navView.getHeaderView(0).findViewById(R.id.email)
-//        email.text = userSharedPreferences?.email
+            override fun onDrawerStateChanged(newState: Int) {
+                if (newState == DrawerLayout.STATE_SETTLING) {
+                    closeKeyBoard()
+                }
+                super.onDrawerStateChanged(newState)
+            }
+        }
+
+        drawer.addDrawerListener(toggle)
+        toggle.syncState()
+        navView.setNavigationItemSelectedListener { item ->
+            Util.clickMenuItem(this@ProductsActivity, item)
+            drawer.closeDrawers()
+            true
+        }
+        email = navView.getHeaderView(0).findViewById(R.id.email)
+        email.text = userSharedPreferences?.email
         val photoImageView = navView.getHeaderView(0).findViewById<CircleImageView>(R.id.navDrawerImageView)
         Util.initImageLoader(this)
         ImageLoader.getInstance().displayImage(userSharedPreferences?.photoUrl, photoImageView)
@@ -115,20 +116,20 @@ class ProductsActivity : BaseActivity(), IProductsView, NavigationView.OnNavigat
      * скрыть панель с кнопками при скроллинге вниз
      */
     fun hideViews() {
-        val lp = bottomNavigationView.layoutParams as CoordinatorLayout.LayoutParams
+        val lp = bottomNavigationView?.layoutParams as CoordinatorLayout.LayoutParams
         val bottomMargin = lp.bottomMargin
-        bottomNavigationView.animate().translationY((bottomNavigationView.height + bottomMargin).toFloat()).setInterpolator(AccelerateInterpolator(2f)).start()
-        val lpFam = fab_add_edit_product.layoutParams as CoordinatorLayout.LayoutParams
+        bottomNavigationView.animate()?.translationY((bottomNavigationView.height + bottomMargin).toFloat())?.setInterpolator(AccelerateInterpolator(2f))?.start()
+        val lpFam = fab_add_edit_product?.layoutParams as CoordinatorLayout.LayoutParams
         val famMargin = lpFam.bottomMargin
-        fab_add_edit_product.animate().translationY((fab_add_edit_product.height + bottomNavigationView.height + bottomMargin + famMargin).toFloat()).setInterpolator(AccelerateInterpolator(2f)).start()
+        fab_add_edit_product.animate()?.translationY((fab_add_edit_product.height + bottomNavigationView.height + bottomMargin + famMargin).toFloat())?.setInterpolator(AccelerateInterpolator(2f))?.start()
     }
 
     /**
      * показать панель c кнопками при скроллинге вверх
      */
     fun showViews() {
-        bottomNavigationView.animate().translationY(0f).setInterpolator(DecelerateInterpolator(2f)).start()
-        fab_add_edit_product.animate().translationY(0f).setInterpolator(DecelerateInterpolator(2f)).start()
+        bottomNavigationView.animate()?.translationY(0f)?.setInterpolator(DecelerateInterpolator(2f))?.start()
+        fab_add_edit_product.animate()?.translationY(0f)?.setInterpolator(DecelerateInterpolator(2f))?.start()
     }
 
 
@@ -173,10 +174,10 @@ class ProductsActivity : BaseActivity(), IProductsView, NavigationView.OnNavigat
     }
 
     fun showFam() {
-        if (fab_add_edit_product.visibility != View.VISIBLE) {
+        if (fab_add_edit_product?.visibility != View.VISIBLE) {
             val animShow = AnimationUtils.loadAnimation(this, R.anim.scale_show)
-            fab_add_edit_product.startAnimation(animShow)
-            fab_add_edit_product.visibility = View.VISIBLE
+            fab_add_edit_product?.startAnimation(animShow)
+            fab_add_edit_product?.visibility = View.VISIBLE
         }
     }
 

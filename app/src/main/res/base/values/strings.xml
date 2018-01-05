@@ -28,7 +28,7 @@
 
 
     <!--Bottom Navigation Menu-->
-    <string name="bottom_navigation_menu_spoiled">Spoiled</string>
+    <string name="bottom_navigation_menu_spoiled">Expired</string>
     <string name="bottom_navigation_menu_soon">Soon</string>
     <string name="bottom_navigation_menu_fresh">Fresh</string>
     <string name="bottom_navigation_menu_all">All</string>
@@ -39,8 +39,8 @@
 
     <!--Fragment products-->
     <string name="fragment_products_emptyState_all">No products found</string>
-    <string name="fragment_products_emptyState_soon">There are no products that will spoil soon</string>
-    <string name="fragment_products_emptyState_spoiled">No spoiled products</string>
+    <string name="fragment_products_emptyState_soon">There are no products that will expire soon</string>
+    <string name="fragment_products_emptyState_spoiled">No Expired products</string>
     <string name="fragment_products_emptyState_fresh">No fresh products</string>
     <string name="fragment_products_dialog_delete_products_title">Delete products</string>
     <string name="fragment_products_dialog_delete_products_description">Are you sure?</string>
@@ -61,6 +61,7 @@
     <!--Activity Add Edit Product Products-->
     <string name="activity_add_edit_product_title">Add food</string>
     <string name="activity_add_edit_product_edit_text_name">Name</string>
+    <string name="activity_add_edit_product_edit_text_date">Date</string>
     <string name="activity_add_edit_product_image_button_content_description_scan_sc">Barcode scanner button</string>
     <string name="activity_add_edit_product_text_view_unfit_before">Best before:</string>
     <string name="activity_add_edit_product_button_save_title">Save</string>

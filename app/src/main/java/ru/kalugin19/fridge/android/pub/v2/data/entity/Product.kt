@@ -31,11 +31,6 @@ class Product : Parcelable {
     var photoName: String? = null
     var date: String? = null
 
-    val formattedSpoiledDate: String
-        get() {
-            val formatter = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
-            return formatter.format(Date(spoiledDate))
-        }
 
     @Exclude
     var typeMember: String? = null
@@ -43,7 +38,9 @@ class Product : Parcelable {
     @Exclude
     var ownerEmail: String? = null
 
-    constructor() {}
+
+
+    constructor()
 
     constructor(name: String?, createdDate: Long, spoiledDate: Long, photo: String) {
         this.name = name
@@ -62,13 +59,9 @@ class Product : Parcelable {
 
     }
 
-    protected constructor(`in`: Parcel) {
-        createdDate = `in`.readLong()
-        name = `in`.readString()
-        photo = `in`.readString()
-        spoiledDate = `in`.readLong()
-        key = `in`.readString()
-        photoName = `in`.readString()
+    fun getFormattedSpoiledDate(): String{
+        val formatter = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
+        return formatter.format(Date(spoiledDate))
     }
 
 
@@ -79,14 +72,30 @@ class Product : Parcelable {
     override fun writeToParcel(dest: Parcel, flags: Int) {
         dest.writeLong(createdDate)
         dest.writeString(name)
+        dest.writeString(upperName)
         dest.writeString(photo)
         dest.writeLong(spoiledDate)
         dest.writeString(key)
         dest.writeString(photoName)
+        dest.writeString(date)
+        dest.writeString(typeMember)
+        dest.writeString(ownerEmail)
+    }
+
+    protected constructor(`in`: Parcel) {
+        createdDate = `in`.readLong()
+        name = `in`.readString()
+        upperName = `in`.readString()
+        photo = `in`.readString()
+        spoiledDate = `in`.readLong()
+        key = `in`.readString()
+        photoName = `in`.readString()
+        date = `in`.readString()
+        typeMember = `in`.readString()
+        ownerEmail = `in`.readString()
     }
 
     companion object {
-
         val CREATOR: Parcelable.Creator<Product> = object : Parcelable.Creator<Product> {
             override fun createFromParcel(`in`: Parcel): Product {
                 return Product(`in`)

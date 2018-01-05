@@ -1,6 +1,7 @@
 package ru.kalugin19.fridge.android.pub.v2.ui.add_edit_product.view.activity
 
 import android.Manifest
+import android.app.DatePickerDialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -12,7 +13,6 @@ import android.support.design.widget.TextInputLayout
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.DialogFragment
 import android.support.v4.content.ContextCompat
-import android.support.v7.widget.LinearLayoutManager
 import android.text.TextUtils
 import android.view.MenuItem
 import android.view.View
@@ -74,6 +74,8 @@ class AddEditProductActivity : BaseActivity(), IAddEditProductView, Validator.Va
     private var selectCurrentPhoto = -1
     private var file: Uri? = null
     private var lastImageName: String? = null
+    private var currentCalendar = Calendar.getInstance()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,33 +91,33 @@ class AddEditProductActivity : BaseActivity(), IAddEditProductView, Validator.Va
             actionBar.setDisplayHomeAsUpEnabled(true)
         }
 
-        expiration_date?.state()?.edit()?.setMinimumDate(Calendar.getInstance())?.commit()
+//        expiration_date?.state()?.edit()?.setMinimumDate(Calendar.getInstance())?.commit()
 
         validator = Validator(this)
         validator.setValidationListener(this)
-
-        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        recycleImages?.layoutManager = layoutManager
-        recycleImages?.setHasFixedSize(true)
-        adapter = AddEditProductAdapter(this@AddEditProductActivity, object : AddEditProductAdapter.IClickButton {
-            override fun clickAddButton() {
-                selectPhoto(IMAGE)
-            }
-
-            override fun clickDeleteButton(pathImagesProduct: PathImagesProduct) {
-                Dialogs.showAlert(this@AddEditProductActivity, Dialogs.TypeAlert.ALERT_CONFIRM_ACT, R.string.activity_add_edit_product_dialog_delete_image, null, object : Dialogs.IClickButtonDialog {
-                    override fun clickPositiveButton() {
-                        adapter.delete(pathImagesProduct)
-                        product?.photo = null
-                    }
-
-                    override fun clickNegativeButton() {
-
-                    }
-                })
-            }
-        })
-        recycleImages?.adapter = adapter
+//
+//        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+//        recycleImages?.layoutManager = layoutManager
+//        recycleImages?.setHasFixedSize(true)
+//        adapter = AddEditProductAdapter(this@AddEditProductActivity, object : AddEditProductAdapter.IClickButton {
+//            override fun clickAddButton() {
+//                selectPhoto(IMAGE)
+//            }
+//
+//            override fun clickDeleteButton(pathImagesProduct: PathImagesProduct) {
+//                Dialogs.showAlert(this@AddEditProductActivity, Dialogs.TypeAlert.ALERT_CONFIRM_ACT, R.string.activity_add_edit_product_dialog_delete_image, null, object : Dialogs.IClickButtonDialog {
+//                    override fun clickPositiveButton() {
+//                        adapter.delete(pathImagesProduct)
+//                        product?.photo = null
+//                    }
+//
+//                    override fun clickNegativeButton() {
+//
+//                    }
+//                })
+//            }
+//        })
+//        recycleImages?.adapter = adapter
         product = intent.getParcelableExtra(Constants.INFO_PRODUCT)
 
         if (product == null) {
@@ -132,12 +134,13 @@ class AddEditProductActivity : BaseActivity(), IAddEditProductView, Validator.Va
             if (product!!.spoiledDate != 0L) {
                 val calendar = Calendar.getInstance()
                 calendar.timeInMillis = product!!.spoiledDate
-                expiration_date.setCurrentDate(calendar)
-                expiration_date.setSelectedDate(calendar)
+
+//                expiration_date.setCurrentDate(calendar)
+//                expiration_date.setSelectedDate(calendar)
             }
         }
-        adapter.addHeader()
-        expiration_date?.setOnDateChangedListener { _, date, _ -> product!!.spoiledDate = date.calendar.timeInMillis }
+//        adapter.addHeader()
+//        expiration_date?.setOnDateChangedListener { _, date, _ -> product!!.spoiledDate = date.calendar.timeInMillis }
         activityAddEditProductEditTextNameProduct.addTextChangedListener(CustomTextWatcher(activityAddEditProductEditTextNameProduct))
 
         save_product?.setOnClickListener {
@@ -156,6 +159,14 @@ class AddEditProductActivity : BaseActivity(), IAddEditProductView, Validator.Va
             callBarCode()
         }
 
+        showDatePicker()
+
+        expiredDateTextInput.setOnClickListener {
+            showDatePicker()
+        }
+        expiredDateEditTxt.setOnClickListener {
+            showDatePicker()
+        }
     }
 
     override fun testData(imagePath: String?, imageName: String?) {
@@ -406,6 +417,27 @@ class AddEditProductActivity : BaseActivity(), IAddEditProductView, Validator.Va
     override fun showErrorAddOrEditProduct() {
         Snackbar.make(global_view, R.string.activity_add_edit_product_error_add_or_edit_product, Snackbar.LENGTH_LONG).show()
     }
+
+
+    private fun showDatePicker(){
+        val dateSetListener = DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+            val spoiledCalendar = Calendar.getInstance()
+            spoiledCalendar.set(year, monthOfYear, dayOfMonth)
+            product?.spoiledDate = spoiledCalendar.timeInMillis
+            expiredDateEditTxt.setText(product?.getFormattedSpoiledDate())
+            currentCalendar = spoiledCalendar
+        }
+
+
+       val datePickerDialog = DatePickerDialog(this@AddEditProductActivity,
+                dateSetListener,
+                currentCalendar.get(Calendar.YEAR),
+                currentCalendar.get(Calendar.MONTH),
+                currentCalendar.get(Calendar.DAY_OF_MONTH))
+        datePickerDialog.datePicker.minDate = Calendar.getInstance().timeInMillis
+        datePickerDialog.show()
+    }
+
 
     companion object {
         private val HTML_OPEN_TITLE = "<title>"

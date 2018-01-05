@@ -13,6 +13,6 @@ class CommonFridgeActivity: BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_common_fridge)
         val list = ArrayList<Member>()
-        recyclerMembers.addAdapter(this, CommonFridgeMemberAdapter(this, list))
+//        recyclerMembers.addAdapter(this, CommonFridgeMemberAdapter(this, list))
     }
 }

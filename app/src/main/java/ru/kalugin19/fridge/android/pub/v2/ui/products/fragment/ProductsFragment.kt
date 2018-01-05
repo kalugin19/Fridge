@@ -107,7 +107,6 @@ class ProductsFragment : BaseFragment(), IProductsListView {
         this.controlPanel = iControlPanel
     }
 
-//    overA
     override fun onResume() {
         super.onResume()
         typeProducts?.let { productsListPresenter?.attachDatabaseReadListener(it) }
