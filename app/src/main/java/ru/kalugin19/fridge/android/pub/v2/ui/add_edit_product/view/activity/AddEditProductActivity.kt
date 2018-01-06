@@ -14,6 +14,7 @@ import android.support.v4.app.ActivityCompat
 import android.support.v4.app.DialogFragment
 import android.support.v4.content.ContextCompat
 import android.text.TextUtils
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
@@ -30,7 +31,6 @@ import java.util.concurrent.ExecutionException
 
 import javax.inject.Inject
 
-import butterknife.ButterKnife
 import kotlinx.android.synthetic.main.activity_add_edit_product.*
 import pl.aprilapps.easyphotopicker.DefaultCallback
 import pl.aprilapps.easyphotopicker.EasyImage
@@ -65,7 +65,6 @@ class AddEditProductActivity : BaseActivity(), IAddEditProductView, Validator.Va
 
     @NotEmpty(trim = true)
     private lateinit var activityAddEditProductEditTextNameProduct: EditText
-
     private lateinit var adapter: AddEditProductAdapter
     private lateinit var validator: Validator
     private var product: Product? = null
@@ -81,7 +80,6 @@ class AddEditProductActivity : BaseActivity(), IAddEditProductView, Validator.Va
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_edit_product)
         activityComponent.inject(this)
-        ButterKnife.bind(this)
         addEditProductPresenter?.attachView(this)
         progressDialogGetAddEditProduct = ProgressDialogCustom(this, getString(R.string.activity_add_edit_product_progress_dialog_text))
         activityAddEditProductEditTextNameProduct = findViewById(R.id.edit_text_name_product)
@@ -151,13 +149,6 @@ class AddEditProductActivity : BaseActivity(), IAddEditProductView, Validator.Va
             }
         }
 
-        if(Locale.getDefault().displayLanguage != "русский"){
-            activity_add_edit_product_image_button_scan.visibility = View.GONE
-        }
-
-        activity_add_edit_product_image_button_scan.setOnClickListener {
-            callBarCode()
-        }
 
         showDatePicker()
 
@@ -299,6 +290,10 @@ class AddEditProductActivity : BaseActivity(), IAddEditProductView, Validator.Va
                 onBackPressed()
                 true
             }
+            R.id.barCodeScanner -> {
+                callBarCode()
+                return true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -361,16 +356,20 @@ class AddEditProductActivity : BaseActivity(), IAddEditProductView, Validator.Va
         dialogOk.arguments = bundle
         dialogOk.show(supportFragmentManager, "dialog")
         dialogOk.setOnDismissListener(DialogInterface.OnDismissListener { goToProductActivity() })
-//        Dialogs.showAlert(this, Dialogs.TypeAlert.ALERT_OK_GOOD, R.string.activity_add_edit_product_dialog_title, R.string.activity_add_edit_product_dialog_text_success_add_product, object : Dialogs.IClickButtonDialog {
-//            override fun clickPositiveButton() {
-//                goToProductActivity()
-//            }
-//
-//            override fun clickNegativeButton() {
-//
-//            }
-//        })
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        return if(Locale.getDefault().displayLanguage == "русский"){
+            val inflater = menuInflater
+            inflater.inflate(R.menu.action_menu, menu)
+            true
+        } else{
+            false
+        }
+    }
+
+
+
 
     override fun showDialogSuccessEditProduct() {
         Dialogs.showAlert(this, Dialogs.TypeAlert.ALERT_OK_GOOD, R.string.activity_add_edit_product_dialog_title_edit, R.string.activity_add_edit_product_dialog_text_success_edit_product, object : Dialogs.IClickButtonDialog {
@@ -427,7 +426,6 @@ class AddEditProductActivity : BaseActivity(), IAddEditProductView, Validator.Va
             expiredDateEditTxt.setText(product?.getFormattedSpoiledDate())
             currentCalendar = spoiledCalendar
         }
-
 
        val datePickerDialog = DatePickerDialog(this@AddEditProductActivity,
                 dateSetListener,

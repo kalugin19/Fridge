@@ -22,8 +22,7 @@ import android.view.animation.DecelerateInterpolator
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
-
-import com.nostra13.universalimageloader.core.ImageLoader
+import com.bumptech.glide.Glide
 
 import javax.inject.Inject
 
@@ -98,8 +97,11 @@ class ProductsActivity : BaseActivity(), IProductsView, NavigationView.OnNavigat
         email = navView.getHeaderView(0).findViewById(R.id.email)
         email.text = userSharedPreferences?.email
         val photoImageView = navView.getHeaderView(0).findViewById<CircleImageView>(R.id.navDrawerImageView)
-        Util.initImageLoader(this)
-        ImageLoader.getInstance().displayImage(userSharedPreferences?.photoUrl, photoImageView)
+
+        Glide.with(this)
+                .load(userSharedPreferences?.photoUrl)
+                .into(photoImageView)
+
 
         fab_add_edit_product.setOnClickListener {
             val intent = Intent(this@ProductsActivity, AddEditProductActivity::class.java)

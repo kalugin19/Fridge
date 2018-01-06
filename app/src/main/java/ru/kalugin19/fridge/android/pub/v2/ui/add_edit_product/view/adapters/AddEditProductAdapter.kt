@@ -13,10 +13,6 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
 
-import com.nostra13.universalimageloader.core.ImageLoader
-import com.nostra13.universalimageloader.core.assist.FailReason
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener
-
 import java.io.File
 import java.util.ArrayList
 
@@ -84,7 +80,6 @@ class AddEditProductAdapter(private val context: Context, private val clickButto
             }
 
         } else if (holder is ImagesViewHolder) {
-            Util.initImageLoader(context)
             holder.image.layoutParams = RelativeLayout.LayoutParams(imageSize, imageSize)
             var resultPath: String? = pathImagesProduct.path
             if (resultPath != null && !resultPath.startsWith(Constants.HTTP)) {
@@ -92,30 +87,7 @@ class AddEditProductAdapter(private val context: Context, private val clickButto
                 resultPath = Uri.decode(uri.toString())
             }
             if (resultPath != null && !resultPath.isEmpty()) {
-                ImageLoader.getInstance().displayImage(resultPath, holder.image, object : ImageLoadingListener {
-                    override fun onLoadingStarted(imageUri: String, view: View) {
-                        holder.progressBar.visibility = View.VISIBLE
-                        holder.image.visibility = View.GONE
-                        holder.delete.visibility = View.GONE
-                    }
-
-                    override fun onLoadingFailed(imageUri: String, view: View, failReason: FailReason) {
-                        holder.progressBar.visibility = View.GONE
-                        holder.image.visibility = View.VISIBLE
-                        holder.delete.visibility = View.VISIBLE
-                        holder.image.setImageResource(R.drawable.ic_about_us)
-                    }
-
-                    override fun onLoadingComplete(imageUri: String, view: View, loadedImage: Bitmap) {
-                        holder.progressBar.visibility = View.GONE
-                        holder.image.visibility = View.VISIBLE
-                        holder.delete.visibility = View.VISIBLE
-                    }
-
-                    override fun onLoadingCancelled(imageUri: String, view: View) {
-
-                    }
-                })
+               //SETIMAGE
             } else {
                 holder.image.setImageResource(R.drawable.ic_about_us)
             }

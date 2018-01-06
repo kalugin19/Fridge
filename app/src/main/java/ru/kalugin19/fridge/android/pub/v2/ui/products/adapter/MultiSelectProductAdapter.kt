@@ -9,8 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 
-import com.nostra13.universalimageloader.core.ImageLoader
 import java.util.ArrayList
 import java.util.Calendar
 import java.util.TimeZone
@@ -20,7 +20,6 @@ import kotlinx.android.synthetic.main.item_product.view.*
 import ru.kalugin19.fridge.android.pub.v2.R
 import ru.kalugin19.fridge.android.pub.v2.data.entity.Product
 import ru.kalugin19.fridge.android.pub.v2.data.entity.TypeMember
-import ru.kalugin19.fridge.android.pub.v2.ui.base.util.Util
 import ru.kalugin19.fridge.android.pub.v2.ui.products.adapter.MultiSelectProductAdapter.DateObj.UTC
 
 
@@ -71,13 +70,14 @@ class MultiSelectProductAdapter(private val context: Context, private var dataSe
             } else{
                 txtDate.visibility = View.GONE
             }
-            Util.initImageLoader(context)
-            ImageLoader.getInstance().displayImage(product.photo, holder.photoImg)
-
-
 
             itemView?.setOnClickListener {
                 iMultiSelectProductAdapter?.clickByProduct(product)
+            }
+
+            photoImg?.let {
+                Glide.with(context).load(product.photo)
+                    .into(it)
             }
 
             if (selectedProducts.contains(dataSet[position])) {
