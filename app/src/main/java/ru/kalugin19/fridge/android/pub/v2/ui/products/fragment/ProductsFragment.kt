@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.fragment_products.view.*
 import ru.kalugin19.fridge.android.pub.v2.R
 import ru.kalugin19.fridge.android.pub.v2.data.entity.Product
 import ru.kalugin19.fridge.android.pub.v2.data.entity.TypeProducts
+import ru.kalugin19.fridge.android.pub.v2.ui.addAdapter
 import ru.kalugin19.fridge.android.pub.v2.ui.add_edit_product.view.activity.AddEditProductActivity
 import ru.kalugin19.fridge.android.pub.v2.ui.base.util.Constants
 import ru.kalugin19.fridge.android.pub.v2.ui.base.util.ProgressDialogCustom
@@ -260,7 +261,7 @@ class ProductsFragment : BaseFragment(), IProductsListView {
                     }
                 })
             }
-            productsRecycler.adapter = adapter
+            activity?.let { adapter?.let { it1 -> productsRecycler.addAdapter(it, it1) } }
         } else {
             productsRecycler.visibility = View.GONE
             when (typeProducts.ordinal) {
