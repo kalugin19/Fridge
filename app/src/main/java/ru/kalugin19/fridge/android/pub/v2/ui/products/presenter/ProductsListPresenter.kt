@@ -28,7 +28,7 @@ import ru.kalugin19.fridge.android.pub.v2.ui.products.fragment.IProductsListView
 class ProductsListPresenter @Inject
 internal constructor(private val firebaseService: FirebaseService?, private val productModel: ProductModel) : IProductsListPresenter {
 
-    private lateinit var gettingProductsSubscriber: DisposableObserver<List<Product>>
+    private var gettingProductsSubscriber: DisposableObserver<List<Product>>? = null
     private var addProductSubscriber: DisposableObserver<Boolean>? = null
     private var deleteProductSubscriber: DisposableObserver<String>? = null
     private var mChildEventListener: ChildEventListener? = null
@@ -117,7 +117,7 @@ internal constructor(private val firebaseService: FirebaseService?, private val 
         }
 
         productModel.getProducts(typeProducts, searchText).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(gettingProductsSubscriber)
+                .subscribe(gettingProductsSubscriber as DisposableObserver<List<Product>>)
     }
 
     override fun addProduct(product: Product) {
@@ -136,13 +136,14 @@ internal constructor(private val firebaseService: FirebaseService?, private val 
             }
 
         }
+
         productModel.addProduct(product).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(addProductSubscriber as DisposableObserver<Boolean>)
     }
 
     private fun cancelSubscription() {
-        if (!gettingProductsSubscriber.isDisposed) {
-            gettingProductsSubscriber.dispose()
+        if (gettingProductsSubscriber != null && !gettingProductsSubscriber?.isDisposed!!) {
+            gettingProductsSubscriber?.dispose()
         }
         if (addProductSubscriber != null && !addProductSubscriber!!.isDisposed) {
             addProductSubscriber?.dispose()
@@ -166,7 +167,7 @@ internal constructor(private val firebaseService: FirebaseService?, private val 
             }
 
             override fun onNext(photoName: String) {
-                countProduct = countProduct + 1
+                countProduct++
                 if (!TextUtils.isEmpty(photoName)) {
                     val desertRef = storageReference.child(DIRECTORY + photoName)
                     desertRef.delete().addOnSuccessListener {

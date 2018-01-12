@@ -7,11 +7,11 @@
         <item
             android:icon="@drawable/ic_people_white_24dp"
             android:id="@+id/nav_common_fridge"
-            android:title="Общий холодильник" />
+            android:title="@string/activity_products_nav_menu_common_fridge" />
         <item
             android:icon="@drawable/ic_settings_white_24dp"
             android:id="@+id/nav_info"
-            android:title="Настройки" />
+            android:title="@string/activity_products_nav_menu_settings" />
     </group>
 
     <item android:title="@string/navigation_drawer_menu_communicate">

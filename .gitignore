@@ -2,6 +2,10 @@
 /build
 /app/build
 /app/keyStore
-
-Будет удалено build/android-profile/profile-2018-01-04-00-11-29-418.json
-Будет удалено build/android-profile/profile-2018-01-04-00-11-29-418.rawproto
+/.idea/gradle.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/runConfigurations.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
+/.idea/libraries

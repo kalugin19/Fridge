@@ -4,23 +4,20 @@ import android.content.Context
 import android.os.Build
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
-
-import java.util.ArrayList
-import java.util.Calendar
-import java.util.TimeZone
-import java.util.concurrent.TimeUnit
 import kotlinx.android.synthetic.main.activity_authorization.view.*
 import kotlinx.android.synthetic.main.item_product.view.*
 import ru.kalugin19.fridge.android.pub.v2.R
 import ru.kalugin19.fridge.android.pub.v2.data.entity.Product
 import ru.kalugin19.fridge.android.pub.v2.data.entity.TypeMember
+import ru.kalugin19.fridge.android.pub.v2.ui.layoutInflater
 import ru.kalugin19.fridge.android.pub.v2.ui.products.adapter.MultiSelectProductAdapter.DateObj.UTC
+import java.util.*
+import java.util.concurrent.TimeUnit
 
 
 class MultiSelectProductAdapter(private val context: Context, private var dataSet: ArrayList<Product>, selectedList: ArrayList<Product>, private val iMultiSelectProductAdapter: IMultiSelectProductAdapter?) : RecyclerView.Adapter<ProductViewHolder>() {
@@ -53,8 +50,7 @@ class MultiSelectProductAdapter(private val context: Context, private var dataSe
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder? {
-        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_product, parent, false)
-        return ProductViewHolder(view)
+        return ProductViewHolder(context.layoutInflater.inflate(R.layout.item_product, parent, false))
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {

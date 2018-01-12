@@ -35,7 +35,7 @@ constructor(private val firebaseService: FirebaseService, private val productMod
         }.addOnSuccessListener { taskSnapshot ->
             if (taskSnapshot != null && taskSnapshot.downloadUrl != null) {
                 val path = taskSnapshot.downloadUrl.toString()
-                addEditProductView?.get()?.testData(path, file.lastPathSegment)
+                addEditProductView?.get()?.saveProduct(path, file.lastPathSegment)
             }
         }
     }
@@ -64,7 +64,7 @@ constructor(private val firebaseService: FirebaseService, private val productMod
                 })
     }
 
-    override fun editProduct(product: Product, lastImageName: String) {
+    override fun editProduct(product: Product, lastImageName: String?) {
         addEditProductView?.get()?.startProgressDialogGetAddEditProduct()
         productModel.editProduct(product)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -75,7 +75,7 @@ constructor(private val firebaseService: FirebaseService, private val productMod
                                 addEditProductView?.get()?.stopProgressDialogGetAddEditProduct()
                                 addEditProductView?.get()?.showDialogSuccessEditProduct()
                             } else {
-                                deleteImageToFirebaseStorage(lastImageName)
+                                lastImageName?.let { deleteImageToFirebaseStorage(it) }
                             }
                         } else {
                             addEditProductView?.get()?.stopProgressDialogGetAddEditProduct()

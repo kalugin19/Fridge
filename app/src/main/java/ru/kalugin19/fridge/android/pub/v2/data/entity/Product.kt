@@ -13,24 +13,41 @@ import java.util.Locale
  *
  * @author Kalugin Valerij
  */
-class Product : Parcelable {
+class Product() : Parcelable {
+
+    override fun writeToParcel(p0: Parcel?, p1: Int) {
+        p0?.writeLong(createdDate)
+        p0?.writeString(name)
+        p0?.writeString(upperName)
+        p0?.writeString(photo)
+        p0?.writeLong(spoiledDate)
+        p0?.writeString(key)
+        p0?.writeString(photoName)
+        p0?.writeString(date)
+        p0?.writeString(typeMember)
+        p0?.writeString(ownerEmail)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+
     var createdDate: Long = 0
     var name: String? = null
-        set(value) {
-            field = value
-            if (name != null) {
-                this.upperName = value?.toUpperCase()
-            }
-        }
+//        set(value) {
+//            field = value
+//            if (name != null) {
+//                this.upperName = value?.toUpperCase()
+//            }
+//        }
 
-    var upperName: String? = null
-        private set
+    private var upperName: String? = null
     var photo: String? = null
     var spoiledDate: Long = 0
     var key: String? = null
     var photoName: String? = null
     var date: String? = null
-
 
     @Exclude
     var typeMember: String? = null
@@ -38,11 +55,22 @@ class Product : Parcelable {
     @Exclude
     var ownerEmail: String? = null
 
+    constructor(parcel: Parcel) : this() {
+        createdDate = parcel.readLong()
+        name = parcel.readString()
+        upperName = parcel.readString()
+        photo = parcel.readString()
+        spoiledDate = parcel.readLong()
+        key = parcel.readString()
+        photoName = parcel.readString()
+        date = parcel.readString()
+        typeMember = parcel.readString()
+        ownerEmail = parcel.readString()
+    }
 
 
-    constructor()
 
-    constructor(name: String?, createdDate: Long, spoiledDate: Long, photo: String) {
+    constructor(name: String?, createdDate: Long, spoiledDate: Long, photo: String) : this() {
         this.name = name
         if (name != null) {
             this.upperName = name.toUpperCase()
@@ -52,7 +80,7 @@ class Product : Parcelable {
         this.photo = photo
     }
 
-    constructor(name: String, date: String) {
+    constructor(name: String, date: String) : this() {
         this.name = name
         this.upperName = name.toUpperCase()
         this.date = date
@@ -64,46 +92,15 @@ class Product : Parcelable {
         return formatter.format(Date(spoiledDate))
     }
 
+    companion object CREATOR : Parcelable.Creator<Product> {
+        override fun createFromParcel(parcel: Parcel): Product {
+            return Product(parcel)
+        }
 
-    override fun describeContents(): Int {
-        return 0
-    }
-
-    override fun writeToParcel(dest: Parcel, flags: Int) {
-        dest.writeLong(createdDate)
-        dest.writeString(name)
-        dest.writeString(upperName)
-        dest.writeString(photo)
-        dest.writeLong(spoiledDate)
-        dest.writeString(key)
-        dest.writeString(photoName)
-        dest.writeString(date)
-        dest.writeString(typeMember)
-        dest.writeString(ownerEmail)
-    }
-
-    protected constructor(`in`: Parcel) {
-        createdDate = `in`.readLong()
-        name = `in`.readString()
-        upperName = `in`.readString()
-        photo = `in`.readString()
-        spoiledDate = `in`.readLong()
-        key = `in`.readString()
-        photoName = `in`.readString()
-        date = `in`.readString()
-        typeMember = `in`.readString()
-        ownerEmail = `in`.readString()
-    }
-
-    companion object {
-        val CREATOR: Parcelable.Creator<Product> = object : Parcelable.Creator<Product> {
-            override fun createFromParcel(`in`: Parcel): Product {
-                return Product(`in`)
-            }
-
-            override fun newArray(size: Int): Array<Product?> {
-                return arrayOfNulls(size)
-            }
+        override fun newArray(size: Int): Array<Product?> {
+            return arrayOfNulls(size)
         }
     }
+
+
 }

@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/global_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/global_view"
-    tools:context=".ui.add_edit_product.view.activity.AddEditProductActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ui.add_edit_product.view.activity.AddEditProductActivity">
 
 
     <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_marginTop="16dp">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,24 +23,27 @@
             android:padding="16dp">
 
             <ImageView
-                android:layout_above="@+id/expiredDateTextInput"
-                android:src="@drawable/ic_insert_photo_black_48dp"
-                android:layout_marginEnd="8dp"
                 android:id="@+id/img_photo"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
+                android:layout_above="@+id/expiredDateTextInput"
                 android:layout_alignParentLeft="true"
-                android:layout_marginRight="8dp" />
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:contentDescription="@string/activity_add_edit_product_photo"
+                android:src="@drawable/ic_insert_photo_black_48dp" />
 
             <android.support.design.widget.TextInputLayout
-                android:layout_marginEnd="16dp"
-                android:layout_toEndOf="@+id/img_photo"
                 android:id="@+id/activity_add_edit_product_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
+                android:layout_toEndOf="@+id/img_photo"
                 android:layout_toRightOf="@+id/img_photo">
 
                 <EditText
@@ -52,33 +56,31 @@
             </android.support.design.widget.TextInputLayout>
 
 
-
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/expiredDateTextInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/activity_add_edit_product_header"
                 android:layout_marginBottom="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp">
 
                 <EditText
-                    android:focusable="false"
                     android:id="@+id/expiredDateEditTxt"
-                    android:drawablePadding="8dp"
-                    android:drawableStart="@drawable/ic_date_range_grey_600_24dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_date_range_grey_600_24dp"
+                    android:drawablePadding="8dp"
+                    android:drawableStart="@drawable/ic_date_range_grey_600_24dp"
+                    android:focusable="false"
                     android:hint="@string/activity_add_edit_product_edit_text_date"
                     android:inputType="date"
-                    android:textSize="16sp"
-                    android:drawableLeft="@drawable/ic_date_range_grey_600_24dp" />
+                    android:textSize="16sp" />
             </android.support.design.widget.TextInputLayout>
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>
-
 
 
     <Button

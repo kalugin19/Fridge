@@ -38,7 +38,7 @@ interface IAddEditProductView : ViewContract {
     /**
      * проверка на использование метода добавления продукта или редактирования
      */
-    fun testData(imagePath: String?, imageName: String?)
+    fun saveProduct(imagePath: String?, imageName: String?)
 
     /**
      * показать ошибку при загрузке изображения

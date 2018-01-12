@@ -1,13 +1,11 @@
 package ru.kalugin19.fridge.android.pub.v2.ui.base.util
 
+
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.view.MenuItem
-
-
 import ru.kalugin19.fridge.android.pub.v2.BuildConfig
 import ru.kalugin19.fridge.android.pub.v2.R
 import ru.kalugin19.fridge.android.pub.v2.ui.common_fridge.CommonFridgeActivity
