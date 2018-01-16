@@ -1,0 +1,12 @@
+# Created by .ignore support plugin (hsz.mobi)
+/build
+/app/build
+/app/keyStore
+/.idea/gradle.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/runConfigurations.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
+/.idea/libraries
+/.gradle

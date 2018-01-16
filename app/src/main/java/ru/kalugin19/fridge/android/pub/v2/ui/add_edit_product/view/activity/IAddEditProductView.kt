@@ -1,13 +1,7 @@
 package ru.kalugin19.fridge.android.pub.v2.ui.add_edit_product.view.activity
 
-
 import ru.kalugin19.fridge.android.pub.v2.ui.base.ViewContract
 
-/**
- * контракт для активити добавления или редактирования продукта
- *
- * @author Natochij Alexander
- */
 interface IAddEditProductView : ViewContract {
 
     /**
@@ -38,7 +32,7 @@ interface IAddEditProductView : ViewContract {
     /**
      * проверка на использование метода добавления продукта или редактирования
      */
-    fun testData(imagePath: String?, imageName: String?)
+    fun saveProduct(imagePath: String?, imageName: String?)
 
     /**
      * показать ошибку при загрузке изображения

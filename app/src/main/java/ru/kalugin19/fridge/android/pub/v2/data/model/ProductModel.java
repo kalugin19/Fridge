@@ -45,7 +45,7 @@ public class ProductModel {
     }
 
     public Observable<Boolean> addProduct(final Product product) {
-        return Observable.create(emitter -> firebaseService.addProduct(product).addOnCompleteListener(task -> emitter.onNext(task.isSuccessful())).addOnFailureListener(e -> emitter.onError(e)));
+        return Observable.create((ObservableEmitter<Boolean> emitter) -> firebaseService.addProduct(product).addOnCompleteListener(task -> emitter.onNext(task.isSuccessful())).addOnFailureListener(emitter::onError));
     }
 
     public Observable<Boolean> editProduct(final Product product) {

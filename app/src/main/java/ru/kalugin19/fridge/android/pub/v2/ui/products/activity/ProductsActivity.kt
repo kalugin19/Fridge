@@ -7,25 +7,20 @@ import android.os.Bundle
 import android.support.design.internal.BottomNavigationItemView
 import android.support.design.internal.BottomNavigationMenuView
 import android.support.design.widget.BottomNavigationView
-import android.support.design.widget.CoordinatorLayout
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.util.Log
-import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.AnimationUtils
 import android.view.animation.DecelerateInterpolator
 import android.view.inputmethod.InputMethodManager
+import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
-
-import com.nostra13.universalimageloader.core.ImageLoader
-
-import javax.inject.Inject
-
+import com.bumptech.glide.Glide
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_products.*
 import kotlinx.android.synthetic.main.app_bar_products.*
@@ -37,6 +32,7 @@ import ru.kalugin19.fridge.android.pub.v2.ui.add_edit_product.view.activity.AddE
 import ru.kalugin19.fridge.android.pub.v2.ui.base.util.Util
 import ru.kalugin19.fridge.android.pub.v2.ui.base.view.activity.BaseActivity
 import ru.kalugin19.fridge.android.pub.v2.ui.products.fragment.ProductsFragment
+import javax.inject.Inject
 
 /**
  * Экран Список продуктов
@@ -78,7 +74,7 @@ class ProductsActivity : BaseActivity(), IProductsView, NavigationView.OnNavigat
 
 //        val toggle = object : ActionBarDrawerToggle(
 //                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
-//
+
 //            override fun onDrawerStateChanged(newState: Int) {
 //                if (newState == DrawerLayout.STATE_SETTLING) {
 //                    closeKeyBoard()
@@ -89,16 +85,18 @@ class ProductsActivity : BaseActivity(), IProductsView, NavigationView.OnNavigat
 
 //        drawer.addDrawerListener(toggle)
 //        toggle.syncState()
-//        navView.setNavigationItemSelectedListener { item ->
-//            Util.clickMenuItem(this@ProductsActivity, item)
-//            drawer.closeDrawers()
-//            true
-//        }
-//        email = navView.getHeaderView(0).findViewById(R.id.email)
-//        email.text = userSharedPreferences?.email
+        navView.setNavigationItemSelectedListener { item ->
+            Util.clickMenuItem(this@ProductsActivity, item)
+            drawer.closeDrawers()
+            true
+        }
+        email = navView.getHeaderView(0).findViewById(R.id.email)
+        email.text = userSharedPreferences?.email
         val photoImageView = navView.getHeaderView(0).findViewById<CircleImageView>(R.id.navDrawerImageView)
-        Util.initImageLoader(this)
-        ImageLoader.getInstance().displayImage(userSharedPreferences?.photoUrl, photoImageView)
+
+        Glide.with(this)
+                .load(userSharedPreferences?.photoUrl)
+                .into(photoImageView)
 
         fab_add_edit_product.setOnClickListener {
             val intent = Intent(this@ProductsActivity, AddEditProductActivity::class.java)
@@ -107,34 +105,31 @@ class ProductsActivity : BaseActivity(), IProductsView, NavigationView.OnNavigat
         disableShiftMode(bottomNavigationView)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        return false
-    }
-
     /**
      * скрыть панель с кнопками при скроллинге вниз
      */
     fun hideViews() {
-        val lp = bottomNavigationView.layoutParams as CoordinatorLayout.LayoutParams
+        val lp = bottomNavigationView?.layoutParams as RelativeLayout.LayoutParams
         val bottomMargin = lp.bottomMargin
-        bottomNavigationView.animate().translationY((bottomNavigationView.height + bottomMargin).toFloat()).setInterpolator(AccelerateInterpolator(2f)).start()
-        val lpFam = fab_add_edit_product.layoutParams as CoordinatorLayout.LayoutParams
+//        bottomNavigationView.animate()?.translationY((bottomNavigationView.height + bottomMargin).toFloat())?.setInterpolator(AccelerateInterpolator(2f))?.start()
+        val lpFam = fab_add_edit_product?.layoutParams as RelativeLayout.LayoutParams
         val famMargin = lpFam.bottomMargin
-        fab_add_edit_product.animate().translationY((fab_add_edit_product.height + bottomNavigationView.height + bottomMargin + famMargin).toFloat()).setInterpolator(AccelerateInterpolator(2f)).start()
+        fab_add_edit_product.animate()?.translationY((fab_add_edit_product.height + bottomNavigationView.height + bottomMargin + famMargin).toFloat())?.setInterpolator(AccelerateInterpolator(2f))?.start()
+//        bottomNavigationView.visibility = View.GONE
     }
 
     /**
      * показать панель c кнопками при скроллинге вверх
      */
     fun showViews() {
-        bottomNavigationView.animate().translationY(0f).setInterpolator(DecelerateInterpolator(2f)).start()
-        fab_add_edit_product.animate().translationY(0f).setInterpolator(DecelerateInterpolator(2f)).start()
+//        bottomNavigationView.visibility = View.VISIBLE
+//        bottomNavigationView.animate()?.translationY(0f)?.setInterpolator(DecelerateInterpolator(2f))?.start()
+        fab_add_edit_product.animate()?.translationY(0f)?.setInterpolator(DecelerateInterpolator(2f))?.start()
     }
 
 
     private fun selectFragment(item: MenuItem) {
         var fragment: ProductsFragment? = null
-        // init corresponding fragment
         when (item.itemId) {
             R.id.bottom_navigation_menu_all -> fragment = ProductsFragment.newInstance(TypeProducts.ALL)
             R.id.bottom_navigation_menu_fresh -> fragment = ProductsFragment.newInstance(TypeProducts.FRESH)
@@ -173,10 +168,10 @@ class ProductsActivity : BaseActivity(), IProductsView, NavigationView.OnNavigat
     }
 
     fun showFam() {
-        if (fab_add_edit_product.visibility != View.VISIBLE) {
+        if (fab_add_edit_product?.visibility != View.VISIBLE) {
             val animShow = AnimationUtils.loadAnimation(this, R.anim.scale_show)
-            fab_add_edit_product.startAnimation(animShow)
-            fab_add_edit_product.visibility = View.VISIBLE
+            fab_add_edit_product?.startAnimation(animShow)
+            fab_add_edit_product?.visibility = View.VISIBLE
         }
     }
 

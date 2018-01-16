@@ -10,56 +10,48 @@ import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.SearchView
-import android.view.ActionMode
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
-
-
-import java.util.ArrayList
-
-import javax.inject.Inject
-
-
+import android.view.*
 import kotlinx.android.synthetic.main.activity_authorization.*
 import kotlinx.android.synthetic.main.fragment_products.*
 import kotlinx.android.synthetic.main.fragment_products.view.*
 import ru.kalugin19.fridge.android.pub.v2.R
 import ru.kalugin19.fridge.android.pub.v2.data.entity.Product
 import ru.kalugin19.fridge.android.pub.v2.data.entity.TypeProducts
+import ru.kalugin19.fridge.android.pub.v2.ui.addAdapter
 import ru.kalugin19.fridge.android.pub.v2.ui.add_edit_product.view.activity.AddEditProductActivity
 import ru.kalugin19.fridge.android.pub.v2.ui.base.util.Constants
 import ru.kalugin19.fridge.android.pub.v2.ui.base.util.ProgressDialogCustom
 import ru.kalugin19.fridge.android.pub.v2.ui.products.activity.ProductsActivity
 import ru.kalugin19.fridge.android.pub.v2.ui.products.adapter.MultiSelectProductAdapter
+import ru.kalugin19.fridge.android.pub.v2.ui.products.fragment.ProductsFragment.Type.ALL
+import ru.kalugin19.fridge.android.pub.v2.ui.products.fragment.ProductsFragment.Type.FRESH
+import ru.kalugin19.fridge.android.pub.v2.ui.products.fragment.ProductsFragment.Type.SOON
+import ru.kalugin19.fridge.android.pub.v2.ui.products.fragment.ProductsFragment.Type.SPOILED
 import ru.kalugin19.fridge.android.pub.v2.ui.products.presenter.ProductsListPresenter
 import ru.kalugin19.fridge.android.pub.v2.ui.products.utils.RecyclerItemClickListener
+import java.util.*
+import javax.inject.Inject
 
 
-/**
- * Фрагмент список продуктов
- *
- * @author Kalugin Valerij
- */
 class ProductsFragment : BaseFragment(), IProductsListView {
 
     private var searchView: SearchView? = null
-
     private var mActionMode: ActionMode? = null
     private var adapter: MultiSelectProductAdapter? = null
     private lateinit var controlPanel: ProductsActivity.IControlPanel
     private var scrolledDistance = 0
     private var controlsVisible = true
-    private val ALL = 0
-    private val SPOILED = 1
-    private val FRESH = 2
-    private val SOON = 3
+
     private var productsList = ArrayList<Product>()
     private var multiselectList = ArrayList<Product>()
     private var isMultiSelect = false
 
+    object Type{
+        internal const val ALL = 0
+        internal const val SPOILED = 1
+        const val FRESH = 2
+        const val SOON = 3
+    }
     var productsListPresenter: ProductsListPresenter? = null
         @Inject set
 
@@ -107,7 +99,6 @@ class ProductsFragment : BaseFragment(), IProductsListView {
         this.controlPanel = iControlPanel
     }
 
-//    overA
     override fun onResume() {
         super.onResume()
         typeProducts?.let { productsListPresenter?.attachDatabaseReadListener(it) }
@@ -119,7 +110,7 @@ class ProductsFragment : BaseFragment(), IProductsListView {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        productsListPresenter!!.onStop()
+        productsListPresenter?.onStop()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -270,7 +261,7 @@ class ProductsFragment : BaseFragment(), IProductsListView {
                     }
                 })
             }
-            productsRecycler.adapter = adapter
+            activity?.let { adapter?.let { it1 -> productsRecycler.addAdapter(it, it1) } }
         } else {
             productsRecycler.visibility = View.GONE
             when (typeProducts.ordinal) {

@@ -16,10 +16,8 @@
     <string name="navigation_drawer_menu_share">Поделиться</string>
     <string name="navigation_drawer_menu_communicate">Взаимодействие</string>
 
-    <!--Screen Intro-->
 
     <!--Screen Auth-->
-    <string name="screen_auth">Авторизация</string>
     <string name="screen_auth_authorization_error">Не удалось авторизоваться</string>
     <string name="screen_auth_dialog_authorization">Авторизация</string>
 
@@ -48,24 +46,16 @@
     <string name="fragment_products_dialog_delete_products_negative">Отменить</string>
 
     <!--Activity Products-->
+    <string name="activity_products_nav_menu_settings">Настройки</string>
+    <string name="activity_products_nav_menu_common_fridge">Общий холодильник</string>
     <string name="activity_products_progress_dialog_delete_products">Удаление продуктов</string>
     <string name="activity_products_progress_deleting_error">Ошибка удаления</string>
     <string name="activity_products_error_no_internet">Нет интернета</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close" >Close navigation drawer</string>
-
-    <!--Voice Input Products-->
-
-
     <!--Activity Add Edit Product Products-->
     <string name="activity_add_edit_product_title">Добавление продукта</string>
     <string name="activity_add_edit_product_edit_text_name">Наименование</string>
-    <string name="activity_add_edit_product_image_button_content_description_scan_sc">Кнопка сканера штрих-кода</string>
-    <string name="activity_add_edit_product_text_view_unfit_before">Годен до:</string>
     <string name="activity_add_edit_product_button_save_title">Сохранить</string>
-    <string name="activity_add_edit_product_image_view_photo_product">Изображение продукта</string>
-    <string name="activity_add_edit_product_image_view_deleted_photo_product">Изображение кнопки удалить фото продукта</string>
     <string name="activity_add_edit_product_error_permission_granted_to_camera">Нет доступа к камере</string>
     <string name="activity_add_edit_product_error_search_product">Товар не найден</string>
     <string name="activity_add_edit_product_error_no_internet">Сеть недоступна - проверьте подключение к сети и повторите попытку</string>
@@ -74,12 +64,11 @@
     <string name="activity_add_edit_product_dialog_title_edit">Редактирование продукта</string>
     <string name="activity_add_edit_product_dialog_text_success_edit_product">Продукт в хранилище изменен</string>
     <string name="activity_add_edit_product_progress_dialog_text">Загрузка данных, пожалуйста, подождите&#8230;</string>
-    <string name="activity_add_edit_product_dialog_delete_image">Удалить изображение?</string>
-    <string name="activity_add_edit_product_imagView_content_description_add_product">Добавление продукта</string>
     <string name="activity_add_edit_product_select_picture_with">Выбрать картинку с помощью&#8230;</string>
     <string name="activity_add_edit_product_dialog_title_error_download_image">Ошибка</string>
     <string name="activity_add_edit_product_dialog_text_error_download_image">При отправке изображения произошла ошибка</string>
     <string name="activity_add_edit_product_barcode_search">Поиск</string>
     <string name="activity_add_edit_product_error_add_or_edit_product">Произошла ошибка</string>
+    <string name="activity_add_edit_product_photo">Изображение продукта</string>
 
 </resources>

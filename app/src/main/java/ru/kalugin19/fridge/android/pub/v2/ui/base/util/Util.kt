@@ -1,18 +1,11 @@
 package ru.kalugin19.fridge.android.pub.v2.ui.base.util
 
+
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.view.MenuItem
-
-import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache
-import com.nostra13.universalimageloader.core.DisplayImageOptions
-import com.nostra13.universalimageloader.core.ImageLoader
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration
-import com.nostra13.universalimageloader.core.assist.ImageScaleType
-
 import ru.kalugin19.fridge.android.pub.v2.BuildConfig
 import ru.kalugin19.fridge.android.pub.v2.R
 import ru.kalugin19.fridge.android.pub.v2.ui.common_fridge.CommonFridgeActivity
@@ -23,23 +16,7 @@ import ru.kalugin19.fridge.android.pub.v2.ui.common_fridge.CommonFridgeActivity
  * @author Kalugin Valerij
  */
 object Util {
-    /**
-     * Метод инициализирующий ImageLoader
-     */
-    fun initImageLoader(activity: Context) {
-        val displayImageOptions = DisplayImageOptions.Builder()
-                .cacheOnDisk(true)
-                .bitmapConfig(Bitmap.Config.RGB_565)
-                .imageScaleType(ImageScaleType.EXACTLY)
-                .build()
 
-        val config = ImageLoaderConfiguration.Builder(activity)
-                .memoryCache(LruMemoryCache(2 * 1024 * 1024))
-                .defaultDisplayImageOptions(displayImageOptions)
-                .diskCacheExtraOptions(480, 320, null)
-                .build()
-        ImageLoader.getInstance().init(config)
-    }
 
     /**
      * Метод определения наличия подключения к интернету

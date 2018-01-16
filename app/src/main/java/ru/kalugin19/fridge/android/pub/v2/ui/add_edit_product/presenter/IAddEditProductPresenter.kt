@@ -26,5 +26,5 @@ interface IAddEditProductPresenter : Presenter<IAddEditProductView> {
     /*
      * изменить данные в продукте
      */
-    fun editProduct(product: Product, lastImageName: String)
+    fun editProduct(product: Product, lastImageName: String?)
 }

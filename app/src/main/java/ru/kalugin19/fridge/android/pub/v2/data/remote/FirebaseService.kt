@@ -29,7 +29,6 @@ constructor() {
     var mFirebaseReferenceProducts: DatabaseReference? = null
     private var mChildEventListener: ChildEventListener? = null
     private var mAuth: FirebaseAuth? = null
-    private var mAuthStateListener: FirebaseAuth.AuthStateListener? = null
     private var mFirebaseStorage: FirebaseStorage? = null
     private var mChatPhotosReference: StorageReference? = null
     private var mainReference: DatabaseReference? = null
@@ -68,53 +67,13 @@ constructor() {
         return mFirebaseReferenceProducts
     }
 
-    fun setmFirebaseReference(mFirebaseReference: DatabaseReference) {
-        this.mFirebaseReferenceProducts = mFirebaseReference
-    }
-
     fun getmChildEventListener(): ChildEventListener? {
         return mChildEventListener
     }
 
-    fun setChildEventListener(childEventListener: ChildEventListener) {
-        this.mChildEventListener = childEventListener
-    }
-
-
-    fun setmChildEventListener(mChildEventListener: ChildEventListener) {
-        this.mChildEventListener = mChildEventListener
-    }
 
     fun getmAuth(): FirebaseAuth? {
         return mAuth
-    }
-
-    fun setmAuth(mAuth: FirebaseAuth) {
-        this.mAuth = mAuth
-    }
-
-    fun getmAuthStateListener(): FirebaseAuth.AuthStateListener? {
-        return mAuthStateListener
-    }
-
-    fun setmAuthStateListener(mAuthStateListener: FirebaseAuth.AuthStateListener) {
-        this.mAuthStateListener = mAuthStateListener
-    }
-
-    fun getmFirebaseStorage(): FirebaseStorage? {
-        return mFirebaseStorage
-    }
-
-    fun setmFirebaseStorage(mFirebaseStorage: FirebaseStorage) {
-        this.mFirebaseStorage = mFirebaseStorage
-    }
-
-    fun getmChatPhotosReference(): StorageReference? {
-        return mChatPhotosReference
-    }
-
-    fun setmChatPhotosReference(mChatPhotosReference: StorageReference) {
-        this.mChatPhotosReference = mChatPhotosReference
     }
 
     private fun addMember() {

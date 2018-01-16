@@ -23,7 +23,7 @@ public class Dialogs {
         return showAlert(context, typeAlert, titleId, context.getString(messageId), clickButton);
     }
 
-    public static AlertDialog showAlert(final Context context, final TypeAlert typeAlert, @android.support.annotation.StringRes int title, String message, final IClickButtonDialog clickButton) {
+    private static AlertDialog showAlert(final Context context, final TypeAlert typeAlert, @android.support.annotation.StringRes int title, String message, final IClickButtonDialog clickButton) {
         AlertDialog alert = createAlert(context, context.getString(title), message);
         alert.setCanceledOnTouchOutside(false);
         switch (typeAlert) {

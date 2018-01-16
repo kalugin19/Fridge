@@ -31,7 +31,6 @@ public class UserSharedPreferences {
     }
 
     public String getEmail() {
-        String i = mPref.getString(EMAIL, "");
         return mPref.getString(EMAIL, "");
     }
 

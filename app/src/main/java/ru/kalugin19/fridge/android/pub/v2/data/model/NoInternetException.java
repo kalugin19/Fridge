@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class NoInternetException extends IOException {
 
-    public NoInternetException() {
+    NoInternetException() {
     }
 
     @SuppressWarnings("unused")
