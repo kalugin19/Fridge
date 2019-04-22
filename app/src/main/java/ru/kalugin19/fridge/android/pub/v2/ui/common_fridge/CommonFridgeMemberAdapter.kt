@@ -10,16 +10,15 @@ import ru.kalugin19.fridge.android.pub.v2.data.entity.Member
 import ru.kalugin19.fridge.android.pub.v2.ui.layoutInflater
 
 class CommonFridgeMemberAdapter(private val context: Context, private val members: List<Member>) : RecyclerView.Adapter<CommonFridgeMemberAdapter.Holder>() {
-
-    override fun onBindViewHolder(holder: Holder?, position: Int) {
-        holder?.itemView?.apply {
+    override fun onBindViewHolder(holder: Holder, position: Int) {
+        holder.itemView.apply {
             val member = members[position]
             email.text = member.email
             name.text = member.name
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): Holder {
+    override fun onCreateViewHolder(parent: ViewGroup, p1: Int): Holder {
         return Holder(context.layoutInflater.inflate(R.layout.item_member, parent, false))
     }
 
@@ -27,5 +26,5 @@ class CommonFridgeMemberAdapter(private val context: Context, private val member
         return members.size
     }
 
-    class Holder(itemView: View?) : RecyclerView.ViewHolder(itemView)
+    class Holder(itemView: View?) : RecyclerView.ViewHolder(itemView!!)
 }

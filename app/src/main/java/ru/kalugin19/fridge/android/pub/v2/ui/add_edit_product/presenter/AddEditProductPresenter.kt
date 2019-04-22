@@ -32,12 +32,13 @@ constructor(private val firebaseService: FirebaseService, private val productMod
         uploadTask.addOnFailureListener {
             addEditProductView?.get()?.stopProgressDialogGetAddEditProduct()
             addEditProductView?.get()?.showErrorDownloadImage()
-        }.addOnSuccessListener { taskSnapshot ->
-            if (taskSnapshot != null && taskSnapshot.downloadUrl != null) {
-                val path = taskSnapshot.downloadUrl.toString()
-                addEditProductView?.get()?.testData(path, file.lastPathSegment)
-            }
         }
+//                .addOnSuccessListener { taskSnapshot ->
+//            if (taskSnapshot != null && taskSnapshot.downloadUrl != null) {
+//                val path = taskSnapshot.downloadUrl.toString()
+//                addEditProductView?.get()?.testData(path, file.lastPathSegment)
+//            }
+//        }
     }
 
 
@@ -114,7 +115,7 @@ constructor(private val firebaseService: FirebaseService, private val productMod
 
     override fun detachView() {
         addEditProductView = null
-        firebaseService.getmFirebaseReference()?.removeEventListener(firebaseService.getmChildEventListener())
+        firebaseService.getmChildEventListener()?.let { firebaseService.getmFirebaseReference()?.removeEventListener(it) }
     }
 
     override fun onStart() {

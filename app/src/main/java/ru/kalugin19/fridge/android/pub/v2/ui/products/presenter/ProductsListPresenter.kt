@@ -44,7 +44,7 @@ internal constructor(private val firebaseService: FirebaseService?, private val 
     override fun detachView() {
         productsListView = null
         if (firebaseService?.getmFirebaseReference() != null && firebaseService.getmChildEventListener() != null) {
-            firebaseService.getmFirebaseReference()!!.removeEventListener(firebaseService.getmChildEventListener())
+            firebaseService.getmFirebaseReference()!!.removeEventListener(firebaseService.getmChildEventListener()!!)
         }
     }
 
@@ -68,28 +68,30 @@ internal constructor(private val firebaseService: FirebaseService?, private val 
 
         if (mChildEventListener == null) {
             mChildEventListener = object : ChildEventListener {
+                override fun onChildMoved(p0: DataSnapshot, p1: String?) {
+                }
+
+                override fun onChildRemoved(p0: DataSnapshot) {
+                    getProducts(typeProducts, "")
+                }
+
+                override fun onCancelled(p0: DatabaseError) {
+                }
+
                 override fun onChildAdded(dataSnapshot: DataSnapshot, s: String?) {}
 
                 override fun onChildChanged(dataSnapshot: DataSnapshot, s: String?) {
                     getProducts(typeProducts, "")
                 }
-
-                override fun onChildRemoved(dataSnapshot: DataSnapshot?) {
-                    getProducts(typeProducts, "")
-                }
-
-                override fun onChildMoved(dataSnapshot: DataSnapshot?, s: String?) {}
-
-                override fun onCancelled(databaseError: DatabaseError?) {}
             }
 
-            firebaseService?.getmFirebaseReference()!!.addChildEventListener(mChildEventListener)
+            firebaseService?.getmFirebaseReference()!!.addChildEventListener(mChildEventListener as ChildEventListener)
         }
     }
 
     fun detachDatabaseReadListener() {
         if (mChildEventListener != null) {
-            firebaseService?.getmFirebaseReference()?.removeEventListener(mChildEventListener)
+            firebaseService?.getmFirebaseReference()?.removeEventListener(mChildEventListener!!)
             mChildEventListener = null
         }
     }

@@ -53,8 +53,8 @@ constructor() {
         return mFirebaseReferenceProducts?.push()?.setValue(product)
     }
 
-    fun deletedProduct(product: Product): Task<Void> {
-        return mFirebaseReferenceProducts!!.child(product.key).removeValue()
+    fun deletedProduct(product: Product): Task<Void>? {
+        return product.key?.let { mFirebaseReferenceProducts?.child(it)?.removeValue() }
     }
 
     fun editProduct(product: Product): Task<Void> {
@@ -120,18 +120,19 @@ constructor() {
     private fun addMember() {
         var isExist = false
         val valueListener = object : ValueEventListener {
-            override fun onCancelled(p0: DatabaseError?) {
+            override fun onCancelled(p0: DatabaseError) {
             }
 
-            override fun onDataChange(p0: DataSnapshot?) {
+            override fun onDataChange(p0: DataSnapshot) {
                 loop@ for (item in p0?.children!!) {
                     val member = item.getValue(String::class.java)
                     if (member.equals(mAuth?.currentUser?.uid)) {
                         isExist = true
                         break@loop
                     }
-                }
-            }
+                }            }
+
+
         }
         mFirebaseReferenceMembers?.addValueEventListener(valueListener)
         if (!isExist) {
@@ -141,11 +142,11 @@ constructor() {
             mAuth?.currentUser?.let {
                 val member = it.email?.let { it1 -> Member(it.displayName.toString(),it1, TypeMember.OWNER.text) }
                 member?.let { it1 -> members.put(it.uid, it1) }
-                mFirebaseReferenceMembers?.updateChildren(members as Map<String, Any>?)
+                (members as Map<String, Any>).let { it1 -> mFirebaseReferenceMembers?.updateChildren(it1) }
                 val owner = HashMap<String, Member>()
                 if (member != null) {
                     owner.put(Constants.OWNER, member)
-                    mainReference?.updateChildren(owner as Map<String, Any>?)
+                    (owner as Map<String, Any>).let { it1 -> mainReference?.updateChildren(it1) }
                 }
             }
         }

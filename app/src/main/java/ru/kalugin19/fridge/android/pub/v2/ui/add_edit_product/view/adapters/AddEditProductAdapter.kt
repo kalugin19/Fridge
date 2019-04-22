@@ -57,15 +57,14 @@ class AddEditProductAdapter(private val context: Context, private val clickButto
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder? {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         if (viewType == VIEW_TYPE_HEADER) {
             val view = LayoutInflater.from(parent.context).inflate(R.layout.item_button_add_product_layout, parent, false)
             return HeaderViewHolder(view)
-        } else if (viewType == VIEW_TYPE_IMAGES) {
+        } else {
             val view = LayoutInflater.from(parent.context).inflate(R.layout.images_adapter_layout_images_item, parent, false)
             return ImagesViewHolder(view)
         }
-        return null
     }
 
     fun addHeader() {
